@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 pattern='(-)([a-z0-9]+)'
 ARCH=
