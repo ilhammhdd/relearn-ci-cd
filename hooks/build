@@ -1,3 +1,11 @@
 #!/bin/bash
 
+pattern='(-)([a-z0-9]+)'
+ARCH=
+
+if [[ $DOCKER_TAG =~ $pattern ]]
+then
+        ARCH="${BASH_REMATCH[2]}/"
+fi
+
 docker build -f ./Containerfile -t $IMAGE_NAME --build-arg ARCH=$ARCH --build-arg REST_PORT=$REST_PORT .
