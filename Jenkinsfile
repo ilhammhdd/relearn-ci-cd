@@ -4,7 +4,7 @@ pipeline {
     stage('build') {
       steps {
         echo 'building...'
-        sh 'echo podman --version'
+        sh 'podman --version'
       }
     }
 
