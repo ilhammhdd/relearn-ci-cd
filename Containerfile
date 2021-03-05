@@ -13,8 +13,10 @@ RUN go build -o relearn_ci_cd
 FROM ${ARCH}alpine
 
 ARG REST_PORT
+ARG INS_NUM
 
 ENV REST_PORT=$REST_PORT
+ENV INS_NUM=$INS_NUM
 
 COPY --from=build-env /go/src/github.com/ilhammhdd/relearn-ci-cd/relearn_ci_cd .
 
