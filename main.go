@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"bytes"
 
 	"github.com/ilhammhdd/go-toolkit/errorkit"
 	"github.com/ilhammhdd/go-toolkit/safekit"
@@ -29,8 +30,12 @@ func main() {
 }
 
 func restListener() {
+	var okeBuffer bytes.Buffer
+	okeBuffer.WriteString("OKE ")
+	okeBuffer.WriteString(os.Getenv("INS_NUM"))
+
 	http.Handle("/test", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("OKE"))
+		w.Write([]byte(okeBuffer.String()))
 		w.WriteHeader(http.StatusOK)
 	}))
 
